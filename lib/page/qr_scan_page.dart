@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+
+import '../home_page.dart';
 class QRScanPage extends StatefulWidget {
   final bool IsScan;
   QRScanPage({Key key,@required this.IsScan}) : super(key: key);
@@ -43,7 +45,11 @@ class _QRScanPageState extends State<QRScanPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           GestureDetector(
-                            onTap: () => Navigator.pop(context),
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                )),
                             child: Icon(
                               Icons.arrow_back,
                               size: 30.0,
