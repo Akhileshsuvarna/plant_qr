@@ -1,0 +1,40 @@
+name: plantqr
+description: A new Flutter application.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^0.19.3
+  cupertino_icons: ^1.0.2
+  flutter_barcode_scanner: ^1.0.1
+  barcode_widget: ^1.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/svg/
+
+  fonts:
+    - family: SfUiDisplay
+      fonts:
+        - asset: assets/font/sf_ui_display.otf
+
+    - family: SfUiDisplayLight
+      fonts:
+        - asset: assets/font/sf-ui-display-thin.otf
