@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:plantqr/widget/button_widget.dart';
-import '../main.dart';
-
 class QRScanPage extends StatefulWidget {
+  final bool IsScan;
+  QRScanPage({Key key,@required this.IsScan}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => _QRScanPageState();
+  State<StatefulWidget> createState() => _QRScanPageState(IsScan: this.IsScan );
 }
 
 class _QRScanPageState extends State<QRScanPage> {
   String qrCode = '';
-
+  _QRScanPageState({this.IsScan});
+  bool IsScan;
   @override
   void initState() {
     super.initState();
+    if(IsScan)
     scanQRCode();
   }
   @override

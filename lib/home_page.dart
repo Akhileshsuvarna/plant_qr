@@ -123,30 +123,57 @@ class _HomePageState extends State<HomePage> {
               child: Column(
         children: [
           Container(
-              padding: EdgeInsets.only(top: 110),
-              child: Container(
+              color: Colors.transparent,
+              child: Stack(fit: StackFit.loose, children: <Widget>[
+                Container(
+                    color: Colors.transparent,
+                    width: MediaQuery.of(context).size.width,
+                    height: 150,
+                    child: CustomPaint(
+                      painter: CustomToolbarShape(lineColor: Colors.blueAccent),
+                    )),
+                Container(
+                    padding: EdgeInsets.only(top: 120),
+                    child: Container(
 //                              height: MediaQuery.of(context).size.height / 14.5,
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  child: Container(
-                      decoration: new BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 20.0,
-                            // shadow
-                            spreadRadius: .8,
-                            // set effect of extending the shadow
-                          )
-                        ],
-                      ),
-                      child: _search()))),
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Container(
+                            decoration: new BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 20.0,
+                                  // shadow
+                                  spreadRadius: .8,
+                                  // set effect of extending the shadow
+                                )
+                              ],
+                            ),
+                            child: _search()))),
+                Align(
+                    alignment: Alignment(-0.9, 0.0),
+                    child: Container(
+                        height: 150,
+//                            width: MediaQuery.of(context).size.width / 13,
+                        child: InkWell(
+                            onTap: () {},
+                            child: Center(
+                              child: Text(
+                                'QR Plant',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            )))),
+              ])),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => QRScanPage(),
+                          builder: (BuildContext context) => QRScanPage(IsScan:true),
                         )),
                     child: Container(
                         padding: EdgeInsets.all(50),
@@ -171,7 +198,7 @@ class _HomePageState extends State<HomePage> {
     try {
       final qrCode = await FlutterBarcodeScanner.scanBarcode(
         '#ff6666',
-        'Cancel',
+        '',
         true,
         ScanMode.QR,
       );
@@ -258,7 +285,7 @@ class DataSearch extends SearchDelegate<String> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => QRScanPage(),
+                  builder: (context) => QRScanPage(IsScan:false),
                 ));
           },
 //          leading: Icon(Icons.add_comment),
