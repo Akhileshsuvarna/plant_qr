@@ -1,4 +1,4 @@
-# plantqr
+## plantqr
 
 A Scan Application for Plants
 
